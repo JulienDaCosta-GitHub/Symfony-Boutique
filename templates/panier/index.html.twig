@@ -17,24 +17,19 @@
             <p>Il n'y a rien dans le panier</p>
             {% else %}
             <ul>
-                {% for produit in produits %}
-                    <li><a href="{{path('fiche_produit', {id: produit.id})}}">{{produit.nom}}</a></li>
+                {% for panier in paniers %}
                     {% if produit.photo is not null %}
                     <img src="{{ asset('assets/images/' ~ produit.photo) }}" style="height:15rem"/>
                 {% endif %}
-                    <h3>Prix: {{produit.prix}}€</h3>
-                    <p>Quantité restante: {{produit.quantite}}</p>
+                    <li>{{produit.quantite}}</li>
+                    <li>{{produit.date_ajout}}</li>
+                    <li>{{produit.etat}}</li>
                     <br>
                 {% endfor %}
                 </ul>
             {% endif %}
         </div>
         <div class="col-6">
-        <h2>Ajouter un produit:</h2>
-        <br>
-            {{form_start(formProduit)}}
-            {{form_end(formProduit)}}
-        </div>
     </div>
 </div>
 {% endblock %}

@@ -42,7 +42,7 @@ class PanierController extends AbstractController
         // }
 
         return $this->render('panier/index.html.twig', [
-           'panier' => $panierRepository,
+           'paniers' => $panierRepository,
         //    'formProduit' => $form->createView()
 
         ]);
