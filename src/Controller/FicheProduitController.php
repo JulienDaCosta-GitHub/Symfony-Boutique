@@ -43,7 +43,7 @@ class FicheProduitController extends AbstractController
         //     $entityManager->persist($produit);
         //     $entityManager->flush();
 
-        //     $this->redirectToRoute('accueil');
+        //     $this->redirectToRoute('produits');
         // }
 
         return $this->render('fiche_produit/index.html.twig', [

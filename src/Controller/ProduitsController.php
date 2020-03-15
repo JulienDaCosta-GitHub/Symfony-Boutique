@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ProduitsController extends AbstractController
 {
     /**
-     * @Route("/", name="accueil")
+     * @Route("/", name="produits")
      */
     public function index(Request $request, EntityManagerInterface $entityManager)
     {
@@ -39,7 +39,7 @@ class ProduitsController extends AbstractController
             $entityManager->persist($produit);
             $entityManager->flush();
 
-            $this->redirectToRoute('accueil');
+            $this->redirectToRoute('produits');
         }
 
         return $this->render('produits/index.html.twig', [
