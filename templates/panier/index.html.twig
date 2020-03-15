@@ -13,17 +13,14 @@
 <br>
     <div class="row">
         <div class="col-6">
-            {% if produits is empty %}
+            {% if paniers is empty %}
             <p>Il n'y a rien dans le panier</p>
             {% else %}
             <ul>
                 {% for panier in paniers %}
-                    {% if produit.photo is not null %}
-                    <img src="{{ asset('assets/images/' ~ produit.photo) }}" style="height:15rem"/>
-                {% endif %}
-                    <li>{{produit.quantite}}</li>
-                    <li>{{produit.date_ajout}}</li>
-                    <li>{{produit.etat}}</li>
+                    <li>{{panier.quantite}}</li>
+                    <li>{{panier.date_ajout}}</li>
+                    <li>{{panier.etat}}</li>
                     <br>
                 {% endfor %}
                 </ul>
