@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}Hello ProduitsController!{% endblock %}
 
 {% block body %}
 <style>
@@ -8,15 +8,13 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-
-
 <div class="container mt-5">
-<h1>Liste des produits:</h1>
+<h1>Votre panier:</h1>
 <br>
     <div class="row">
         <div class="col-6">
             {% if produits is empty %}
-            <p>Il n'y a aucun produit</p>
+            <p>Il n'y a rien dans le panier</p>
             {% else %}
             <ul>
                 {% for produit in produits %}

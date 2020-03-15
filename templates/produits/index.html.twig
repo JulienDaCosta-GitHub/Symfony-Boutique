@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProduitsController!{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
 <style>
@@ -8,13 +8,35 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/Symfony-RenduFinal/src/Controller/ProduitsController.php'|file_link(0) }}">src/Controller/ProduitsController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/Symfony-RenduFinal/templates/produits/index.html.twig'|file_link(0) }}">templates/produits/index.html.twig</a></code></li>
-    </ul>
+
+<div class="container mt-5">
+<h1>Liste des produits:</h1>
+<br>
+    <div class="row">
+        <div class="col-6">
+            {% if produits is empty %}
+            <p>Il n'y a aucun produit</p>
+            {% else %}
+            <ul>
+                {% for produit in produits %}
+                    <li><a href="{{path('fiche_produit', {id: produit.id})}}">{{produit.nom}}</a></li>
+                    {% if produit.photo is not null %}
+                    <img src="{{ asset('assets/images/' ~ produit.photo) }}" style="height:15rem"/>
+                {% endif %}
+                    <h3>Prix: {{produit.prix}}€</h3>
+                    <p>Quantité restante: {{produit.quantite}}</p>
+                    <br>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        <div class="col-6">
+        <h2>Ajouter un produit:</h2>
+        <br>
+            {{form_start(formProduit)}}
+            {{form_end(formProduit)}}
+        </div>
+    </div>
 </div>
 {% endblock %}
