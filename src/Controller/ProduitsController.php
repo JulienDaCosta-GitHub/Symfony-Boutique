@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ProduitsController extends AbstractController
 {
     /**
-     * @Route("/produits", name="produits")
+     * @Route("/", name="produits")
      */
     public function index(Request $request, EntityManagerInterface $entityManager)
     {
