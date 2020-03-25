@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class BrandNewController extends AbstractController
 {
     /**
-     * @Route("/deployment", name="brand_new")
+     * @Route("/", name="brand_new")
      */
     public function index()
     {
